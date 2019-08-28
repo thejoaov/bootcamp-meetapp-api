@@ -18,20 +18,27 @@ const upload = multer(multerConfig);
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-routes.use(authMiddleware);
+routes.post(
+  '/files',
+  authMiddleware,
+  upload.single('file'),
+  FileController.store
+);
 
-routes.post('/files', upload.single('file'), FileController.store);
+routes.put('/users', authMiddleware, UserController.update);
 
-routes.put('/users', UserController.update);
+routes.get('/meetups', authMiddleware, MeetupController.index);
+routes.post('/meetups', authMiddleware, MeetupController.store);
+routes.put('/meetups/:id', authMiddleware, MeetupController.update);
+routes.delete('/meetups/:id', authMiddleware, MeetupController.delete);
 
-routes.get('/meetups', MeetupController.index);
-routes.post('/meetups', MeetupController.store);
-routes.put('/meetups/:id', MeetupController.update);
-routes.delete('/meetups/:id', MeetupController.delete);
+routes.get('/organizing', authMiddleware, OrganizingController.index);
+routes.get('/subscriptions', authMiddleware, SubscriptionController.index);
 
-routes.get('/organizing', OrganizingController.index);
-routes.get('/subscriptions', SubscriptionController.index);
-
-routes.post('/meetups/:meetupId/subscriptions', SubscriptionController.store);
+routes.post(
+  '/meetups/:meetupId/subscriptions',
+  authMiddleware,
+  SubscriptionController.store
+);
 
 export default routes;
