@@ -7,6 +7,7 @@ import User from '../app/models/User';
 import Meetup from '../app/models/Meetup';
 import Subscription from '../app/models/Subscription';
 import File from '../app/models/File';
+import mongoConfig from '../config/mongo';
 
 const models = [User, File, Meetup, Subscription];
 
@@ -14,7 +15,7 @@ class Database {
   constructor() {
     this.connection = new Sequelize(databaseConfig);
 
-    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+    this.mongoConnection = mongoose.connect(mongoConfig(), {
       useNewUrlParser: true,
       useFindAndModify: true,
     });
