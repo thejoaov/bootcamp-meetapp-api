@@ -14,11 +14,7 @@ class Database {
   constructor() {
     this.connection = new Sequelize(databaseConfig);
 
-    const { MONGO_HOST, MONGO_PORT, MONGO_NAME } = process.env;
-
-    const mongoURI = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_NAME}`;
-
-    this.mongoConnection = mongoose.connect(mongoURI, {
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useFindAndModify: true,
     });

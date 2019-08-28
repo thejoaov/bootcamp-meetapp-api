@@ -1,4 +1,9 @@
+import crypto from 'crypto';
+
 export default {
-  secret: 'f29618255c309de4469993cce24286ea',
+  secret: crypto
+    .createHash('md5')
+    .update(process.env.APP_SECRET)
+    .digest('hex'),
   expiresIn: '7d',
 };
