@@ -22,6 +22,9 @@
   <a href="https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/package.json">
     <img alt="GitHub package.json dynamic" src="https://img.shields.io/github/package-json/keywords/thejoaov/bootcamp-meetapp-api">
   </a>
+  <a href="https://hub.docker.com/r/thejoaov/meetapp">
+    <img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/thejoaov/meetapp">
+  </a>
 </p>
 
 
@@ -73,7 +76,8 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do Mailhog (para depuração de envio de emails), acessível através do endereço [localhost:8025](http://localhost:8025)
 - Container do processo da Queue do [Bee-queue](https://bee-queue.com/) (Fila de trabalhos);
 - Container do processo da documentação, rodando o servidor estático da documentação (Docs), acessível através do endereço [localhost:5000](http://localhost:5000)
-- Container do processo do App, rodando primeiro o comando `yarn migrate` para realizar as migrações no banco, e em seguida o processo principal da Aplicação, acessível através do endereço [localhost:3333](http://localhost:3333)
+- Container do processo do App, rodando primeiro o comando
+`yarn migrate` (que chama o Sequelize `yarn sequelize db:migrate`) para realizar as migrações no banco, e em seguida o processo principal da Aplicação, acessível através do endereço [localhost:3333](http://localhost:3333)
 
 A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/local/insomnia.json](https://raw.githubusercontent.com/thejoaov/bootcamp-meetapp-api/master/docs/config/insomnia.json)
 Faça o download e importe no programa.
