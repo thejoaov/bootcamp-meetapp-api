@@ -1,7 +1,8 @@
 <h1 align="center">
-    <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
-    <br>
     MeetApp API
+    </br>
+    <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
+  
 </h1>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thejoaov/bootcamp-meetapp-api.svg">
