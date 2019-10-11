@@ -4,15 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "sucrase-node src/server.js",
+    "start": "concurrently --kill-others \"sucrase-node src/server.js\" \"sucrase-node src/queue.js\"",
     "dev": "nodemon src/server.js",
-    "queue": "sucrase-node src/queue.js",
+    "queue": "nodemon src/queue.js",
     "doc": "serve ./docs/local"
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.2.2",
+    "concurrently": "^5.0.0",
     "date-fns": "^2.0.0-alpha.34",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
@@ -23,13 +24,13 @@
     "multer": "^1.4.1",
     "nodemailer": "^6.2.1",
     "nodemailer-express-handlebars": "^3.0.0",
+    "nodemon": "^1.19.1",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.8.7",
-    "youch": "^2.0.10",
     "sequelize-cli": "^5.5.0",
     "sucrase": "^3.10.1",
-    "nodemon": "^1.19.1",
+    "youch": "^2.0.10",
     "yup": "^0.27.0"
   },
   "devDependencies": {
