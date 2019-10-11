@@ -15,10 +15,10 @@
   <a href="https://github.com/thejoaov/bootcamp-meetapp-api/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/thejoaov/bootcamp-meetapp-api.svg">
   </a>
-  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/LICENSE"
+  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/thejoaov/bootcamp-meetapp-api.svg">
   </a>
-  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/package.json"
+  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/package.json">
     <img alt="GitHub package.json dynamic" src="https://img.shields.io/github/package-json/keywords/thejoaov/bootcamp-meetapp-api">
   </a>
 </p>
