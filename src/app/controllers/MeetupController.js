@@ -23,7 +23,6 @@ class MeetupController {
       include: [
         {
           model: User,
-          as: 'user',
           attributes: ['id', 'name', 'email'],
         },
         {
@@ -88,7 +87,6 @@ class MeetupController {
       include: [
         {
           model: User,
-          as: 'user',
           attributes: ['id', 'name', 'email'],
         },
         {
@@ -124,7 +122,6 @@ class MeetupController {
       include: [
         {
           model: User,
-          as: 'user',
           attributes: ['id', 'name', 'email'],
         },
         {

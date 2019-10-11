@@ -19,7 +19,6 @@ class SubscriptionController {
               [Op.gt]: new Date(),
             },
           },
-          required: true,
         },
         {
           model: User,
