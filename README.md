@@ -1,7 +1,25 @@
-# MeetApp API
+<h1 align="center">
+    <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
+    <br>
+    MeetApp API
+</h1>
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thejoaov/bootcamp-meetapp-api.svg">
+
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/thejoaov/bootcamp-meetapp-api.svg">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/thejoaov/bootcamp-meetapp-api.svg">
+  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/thejoaov/bootcamp-meetapp-api.svg">
+  </a>
+  <img alt="GitHub package.json dynamic" src="https://img.shields.io/github/package-json/keywords/thejoaov/bootcamp-meetapp-api">
+  <a href="https://github.com/douglasporto/meetapp-gostack/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/thejoaov/bootcamp-meetapp-api.svg">
+  </a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/thejoaov/bootcamp-meetapp-api.svg">
+</p>
+
 
 API do projeto MeetAppp desenvolvido durante o Bootcamp GoStack 8 da Rocketseat.
-
 
 O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntamente com o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/), para o desafio final do Bootcamp.
 
@@ -74,5 +92,5 @@ A documentação da API está disponível ao rodar a aplicação com o ```docker
 ---
 # Issues
 
-- [Bugs](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug).
+- [Bugs](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug)
 - [Sugestões (Feature Requests)](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?assignees=&labels=&template=feature_request.md&title=)
