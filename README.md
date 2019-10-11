@@ -35,16 +35,24 @@ O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntame
 ---
 # Rodando o projeto localmente
 
-### 1 - Requisitos:
+## Requisitos:
 - [Docker](https://docs.docker.com/install/)
 - [Docker compose](https://docs.docker.com/compose/install/)
 - [Node ^10](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/pt-BR/)
+---
+## "Se eu fizer o passo a passo, meu café vai esfriar!"
 
-### 2 - Variáveis de ambiente
+Se você não tem tempo ou disposição pra fazer todo o passo a passo e perder todo o processo e explicação de como tudo está orquestrado, você pode fazer tudo funcionar simplesmente abrindo um terminal na raiz do projeto, e rodando o seguinte comando:
+```
+$ yarn && cat .env.example>>.env && docker-compose up
+```
+---
+## Para os menos apressados
+### 1 - Variáveis de ambiente
 Crie um arquivo .env na raiz do projeto, bastando copiar o conteúdo do .env.example encontrado na raiz do projeto.
 
-### 3 - Instale as bibliotecas
+### 2 - Instale as bibliotecas
 Instale as dependências na raiz do projeto.
 ```
 $ yarn
@@ -60,7 +68,7 @@ npm:
 $ npm i -g sequelize-cli
 ```
 
-### 4 - Inicie a aplicação
+### 3 - Inicie a aplicação
 A aplicação inicia todos os serviços a partir do comando
 ```
 $ docker-compose up
@@ -82,7 +90,7 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/local/insomnia.json](https://raw.githubusercontent.com/thejoaov/bootcamp-meetapp-api/master/docs/config/insomnia.json)
 Faça o download e importe no programa.
 
-### 5 - (Opcional) Insomnia
+### 4 - (Opcional) Insomnia
 O Insomnia é uma ferramenta de testes de rotas, muito eficiente, prático, leve e customizável. Link para download na [Página oficial](https://insomnia.rest/download/).
 
 ![](https://i.imgur.com/wTn2ltn.png)
