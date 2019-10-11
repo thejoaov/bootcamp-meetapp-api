@@ -59,6 +59,8 @@ $ npx sequelize-cli db:migrate
 _Assim o [npx](https://www.npmjs.com/package/npx) vai se encarregar de baixar o binário e executar de forma automática :D_
 
 ### 6 - (Opcional) Insomnia
+O Insomnia é uma ferramenta de testes de rotas, muito eficiente e prático, leve e customizável. Link para download na [Página oficial](https://insomnia.rest/download/).
+
 A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/insomnia.json](https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/docs/insomnia.json)
 Faça o download e importe no programa.
 
@@ -67,7 +69,7 @@ Faça o download e importe no programa.
 ---
 # Documentação
 
-A documentação da API está disponível ao rodar a aplicação com o ```docker-compose up```, no endereço [localhost:5000](http://localhost:5000)
+A documentação da API está disponível ao rodar a aplicação com o ```docker-compose up```, no endereço [localhost:5000](http://localhost:5000), ou no [Github Pages](https://thejoaov.github.io/bootcamp-meetapp-api/).
 
 ---
 # Bugs
