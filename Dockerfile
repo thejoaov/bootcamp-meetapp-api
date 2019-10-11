@@ -1,6 +1,7 @@
-FROM node:10.16.3-alpine
+FROM node:alpine
 
 WORKDIR /usr/app
 
 COPY . ./
+RUN yarn global add sucrase sequelize-cli serve
 RUN yarn

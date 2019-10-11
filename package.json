@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --kill-others \"sucrase-node src/server.js\" \"sucrase-node src/queue.js\"",
-    "dev": "concurrently \"nodemon src/server.js\" \"nodemon src/queue.js\"",
-    "queue": "nodemon src/queue.js"
+    "start": "sucrase-node src/server.js",
+    "dev": "nodemon src/server.js",
+    "queue": "sucrase-node src/queue.js",
+    "doc": "serve ./docs/local"
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",
@@ -27,7 +28,6 @@
     "sequelize": "^5.8.7",
     "youch": "^2.0.10",
     "sequelize-cli": "^5.5.0",
-    "concurrently": "^4.1.2",
     "sucrase": "^3.10.1",
     "nodemon": "^1.19.1",
     "yup": "^0.27.0"
