@@ -76,7 +76,7 @@ Na raiz do projeto, num terminal separado, rode o comando:
 ```
 $ sequelize db:migrate
 ```
-_OBS: Se você não instalou o Sequelize de forma global, também pode rodar diretamente:
+_OBS: Se você não instalou o Sequelize de forma global, também pode rodar diretamente:_
 ```
 $ npx sequelize-cli db:migrate
 ```
