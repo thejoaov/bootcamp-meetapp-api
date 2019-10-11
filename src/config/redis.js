@@ -5,5 +5,5 @@ export default function redisConfig() {
       port: process.env.REDIS_PORT,
     };
   }
-  return { uri: process.env.REDIS_URL };
+  return { url: process.env.REDIS_URL };
 }
