@@ -47,7 +47,10 @@ Se você não tem tempo ou disposição pra fazer todo o passo a passo e perder 
 ```
 $ yarn && cat .env.example>>.env && docker-compose up
 ```
-_OBS: comando acima é executado apenas uma vez, nas outras execuções, o projeto pode ser iniciado pelo_ `docker-compose up`
+_OBS: comando acima é executado apenas uma vez, nas outras execuções, o projeto pode ser iniciado pelo_ 
+```
+$ docker-compose up
+```
 
 ## Para os menos apressados
 ### 1 - Variáveis de ambiente
