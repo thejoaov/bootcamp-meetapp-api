@@ -5,8 +5,9 @@
   
 </h1>
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thejoaov/bootcamp-meetapp-api.svg">
-
+  <a href="https://github.com/thejoaov/bootcamp-meetapp-api/search?l=javascript">
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thejoaov/bootcamp-meetapp-api.svg">
+  </a>
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/thejoaov/bootcamp-meetapp-api.svg">
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/thejoaov/bootcamp-meetapp-api.svg">
   <a href="https://github.com/thejoaov/bootcamp-meetapp-api/commits/master">
