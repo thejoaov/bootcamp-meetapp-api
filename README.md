@@ -1,7 +1,8 @@
 <h1 align="center">
-    <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
-    <br>
     MeetApp API
+    </br>
+    <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
+  
 </h1>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thejoaov/bootcamp-meetapp-api.svg">
@@ -21,7 +22,7 @@
 
 API do projeto MeetAppp desenvolvido durante o Bootcamp GoStack 8 da Rocketseat.
 
-O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntamente com o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/), para o desafio final do Bootcamp.
+O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntamente com o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/), para o desafio final do Bootcamp GoStack 8.
 
 ---
 # Rodando o projeto localmente
@@ -58,7 +59,7 @@ $ docker-compose up
 ```
 O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do Postgres, com o o banco de dados Postgres (Para os dados da aplicação);
-- Container do Redis, com o o banco de dados Redis (Para a fila de tarefas do Kue);
+- Container do Redis, com o o banco de dados Redis (Para a fila de trabalhos);
 - Container do Mailhog (para depuração de envio de emails), acessível através do endereço [localhost:8025](http://localhost:8025)
 - Container do processo da Queue do [Bee-queue](https://bee-queue.com/) (Fila de trabalhos);
 - Container do processo da documentação, rodando o servidor estático da documentação (Docs), acessível através do endereço [localhost:5000](http://localhost:5000)
