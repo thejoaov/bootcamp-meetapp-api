@@ -73,18 +73,12 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do Mailhog (para depuração de envio de emails), acessível através do endereço [localhost:8025](http://localhost:8025)
 - Container do processo da Queue do [Bee-queue](https://bee-queue.com/) (Fila de trabalhos);
 - Container do processo da documentação, rodando o servidor estático da documentação (Docs), acessível através do endereço [localhost:5000](http://localhost:5000)
-- Container do processo do App, rodando o processo principal da API (Server), acessível através do endereço [localhost:3333](http://localhost:3333)
+- Container do processo do App, rodando primeiro o comando `yarn migrate` para realizar as migrações no banco, e em seguida o processo principal da Aplicação, acessível através do endereço [localhost:3333](http://localhost:3333)
 
-### 5 - Rode as migrations
-A aplicação está iniciada, porém, o banco de dados ainda não possui a estrutura definida pelas [_migrations_](https://sequelize.org/master/manual/migrations.html) do Sequelize.
-Na raiz do projeto, em um terminal separado, rode o comando:
-```
-$ yarn migrate
-```
-A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/insomnia.json](https://raw.githubusercontent.com/thejoaov/bootcamp-meetapp-api/master/docs/config/insomnia.json)
+A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/local/insomnia.json](https://raw.githubusercontent.com/thejoaov/bootcamp-meetapp-api/master/docs/config/insomnia.json)
 Faça o download e importe no programa.
 
-### 6 - (Opcional) Insomnia
+### 5 - (Opcional) Insomnia
 O Insomnia é uma ferramenta de testes de rotas, muito eficiente, prático, leve e customizável. Link para download na [Página oficial](https://insomnia.rest/download/).
 
 ![](https://i.imgur.com/wTn2ltn.png)

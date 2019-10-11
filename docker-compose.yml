@@ -69,5 +69,16 @@ services:
       - '.:/usr/app'
     depends_on: ['queue']
 
+  # migrate:
+  #   build: .
+  #   command: yarn migrate
+  #   environment:
+  #     - POSTGRES_USER=${DB_USER}
+  #     - POSTGRES_PASSWORD=${DB_PASS}
+  #     - POSTGRES_DB=${DB_NAME}
+  #   volumes:
+  #     - '.:/usr/app'
+  #   depends_on: ['app']
+
 volumes:
   postgres_data:
