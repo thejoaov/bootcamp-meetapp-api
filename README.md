@@ -72,11 +72,7 @@ Faça o download e importe no programa.
 A documentação da API está disponível ao rodar a aplicação com o ```docker-compose up```, no endereço [localhost:5000](http://localhost:5000), ou no [Github Pages](https://thejoaov.github.io/bootcamp-meetapp-api/).
 
 ---
-# Bugs
+# Issues
 
-Veja ou crie as issues [AQUI](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?labels=bug).
-
----
-# To-Do
-
-- [ ] Testes?
+- [Bugs](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug).
+- [Sugestões (Feature Requests)](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?assignees=&labels=&template=feature_request.md&title=)
