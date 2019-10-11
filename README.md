@@ -2,7 +2,7 @@
     MeetApp API
     </br>
     <img alt="Yare Yare daze" src="https://i.imgur.com/3cqc6DD.png" />
-  
+
 </h1>
 <p align="center">
   <a href="https://github.com/thejoaov/bootcamp-meetapp-api/search?l=javascript">
@@ -74,11 +74,7 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 A aplicação está iniciada, porém, o banco de dados ainda não possui a estrutura definida pelas [_migrations_](https://sequelize.org/master/manual/migrations.html) do Sequelize.
 Na raiz do projeto, num terminal separado, rode o comando:
 ```
-$ sequelize db:migrate
-```
-_OBS: Se você não instalou o Sequelize de forma global, também pode rodar diretamente:_
-```
-$ npx sequelize-cli db:migrate
+$ yarn sequelize db:migrate
 ```
 _Assim o [npx](https://www.npmjs.com/package/npx) vai se encarregar de baixar o binário e executar de forma automática :D_
 

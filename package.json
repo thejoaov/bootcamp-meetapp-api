@@ -15,7 +15,7 @@
     "start": "concurrently --kill-others \"sucrase-node src/server.js\" \"sucrase-node src/queue.js\"",
     "dev": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
-    "doc": "serve ./docs/local"
+    "doc": "yarn serve ./docs/local"
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",
@@ -37,6 +37,7 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.8.7",
     "sequelize-cli": "^5.5.0",
+    "serve": "^11.2.0",
     "sucrase": "^3.10.1",
     "youch": "^2.0.10",
     "yup": "^0.27.0"
