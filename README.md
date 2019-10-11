@@ -39,14 +39,14 @@ O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntame
 - [Yarn](https://yarnpkg.com/pt-BR/)
 
 ### 2 - Variáveis de ambiente
-Crie um arquivo .env na raiz do projeto, basta copiar o conteúdo do .env.example
+Crie um arquivo .env na raiz do projeto, bastando copiar o conteúdo do .env.example encontrado na raiz do projeto.
 
 ### 3 - Instale as bibliotecas
 Instale as dependências na raiz do projeto.
 ```
 $ yarn
 ```
-_OBS: recomendável a instalação do sequelize-cli de forma global._
+_Opcional: recomendável a instalação do sequelize-cli de forma global._
 
 yarn:
 ```
@@ -62,6 +62,10 @@ A aplicação inicia todos os serviços a partir do comando
 ```
 $ docker-compose up
 ```
+<div align="center">
+<img src="https://i.imgur.com/mMknsiN.gif" height="420">
+</div>
+
 O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do Postgres, com o o banco de dados Postgres (Para os dados da aplicação);
 - Container do Redis, com o o banco de dados Redis (Para a fila de trabalhos);
@@ -72,17 +76,15 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 
 ### 5 - Rode as migrations
 A aplicação está iniciada, porém, o banco de dados ainda não possui a estrutura definida pelas [_migrations_](https://sequelize.org/master/manual/migrations.html) do Sequelize.
-Na raiz do projeto, num terminal separado, rode o comando:
+Na raiz do projeto, em um terminal separado, rode o comando:
 ```
-$ yarn sequelize db:migrate
+$ yarn migrate
 ```
-_Assim o [npx](https://www.npmjs.com/package/npx) vai se encarregar de baixar o binário e executar de forma automática :D_
+A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/insomnia.json](https://raw.githubusercontent.com/thejoaov/bootcamp-meetapp-api/master/docs/config/insomnia.json)
+Faça o download e importe no programa.
 
 ### 6 - (Opcional) Insomnia
-O Insomnia é uma ferramenta de testes de rotas, muito eficiente e prático, leve e customizável. Link para download na [Página oficial](https://insomnia.rest/download/).
-
-A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/insomnia.json](https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/docs/insomnia.json)
-Faça o download e importe no programa.
+O Insomnia é uma ferramenta de testes de rotas, muito eficiente, prático, leve e customizável. Link para download na [Página oficial](https://insomnia.rest/download/).
 
 ![](https://i.imgur.com/wTn2ltn.png)
 
