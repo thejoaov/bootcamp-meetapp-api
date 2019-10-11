@@ -69,6 +69,7 @@ $ docker-compose up
 O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do Postgres, com o o banco de dados Postgres (Para os dados da aplicação);
 - Container do Redis, com o o banco de dados Redis (Para a fila de trabalhos);
+- Container do MongoDB, guardando as relações de esquema.
 - Container do Mailhog (para depuração de envio de emails), acessível através do endereço [localhost:8025](http://localhost:8025)
 - Container do processo da Queue do [Bee-queue](https://bee-queue.com/) (Fila de trabalhos);
 - Container do processo da documentação, rodando o servidor estático da documentação (Docs), acessível através do endereço [localhost:5000](http://localhost:5000)
