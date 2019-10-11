@@ -22,7 +22,7 @@
 
 API do projeto MeetAppp desenvolvido durante o Bootcamp GoStack 8 da Rocketseat.
 
-O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntamente com o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/), para o desafio final do Bootcamp.
+O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntamente com o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/), para o desafio final do Bootcamp GoStack 8.
 
 ---
 # Rodando o projeto localmente
