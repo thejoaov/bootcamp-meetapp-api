@@ -17,6 +17,8 @@ services:
     depends_on: ['postgres']
 
   mongo:
+    ports:
+      - '27017:27017'
     image: mongo
     depends_on: ['redis']
 
