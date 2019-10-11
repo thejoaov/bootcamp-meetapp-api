@@ -1,8 +1,16 @@
 {
-  "name": "mod02",
-  "version": "1.0.0",
+  "name": "bootcamp-meetapp-api",
+  "version": "0.61.3",
   "main": "index.js",
+  "author": "João Victor <jvictorsantos852@mail.com>",
   "license": "MIT",
+  "keywords": [
+    "bootcamp",
+    "gostack",
+    "challenge",
+    "meetapp",
+    "api"
+  ],
   "scripts": {
     "start": "concurrently --kill-others \"sucrase-node src/server.js\" \"sucrase-node src/queue.js\"",
     "dev": "nodemon src/server.js",
