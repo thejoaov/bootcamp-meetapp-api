@@ -7,6 +7,7 @@ O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntame
 
 ---
 # Rodando o projeto localmente
+
 ### 1 - Requisitos:
 - [Docker](https://docs.docker.com/install/)
 - [Docker compose](https://docs.docker.com/compose/install/)
@@ -32,7 +33,7 @@ npm:
 $ npm i -g sequelize-cli
 ```
 
-### 5 - Inicie a aplicação
+### 4 - Inicie a aplicação
 A aplicação inicia todos os serviços a partir do comando
 ```
 $ docker-compose up
@@ -45,7 +46,7 @@ O docker vai iniciar um container para cada serviço na seguinte ordem:
 - Container do processo da documentação, rodando o servidor estático da documentação (Docs), acessível através do endereço [localhost:5000](http://localhost:5000)
 - Container do processo do App, rodando o processo principal da API (Server), acessível através do endereço [localhost:3333](http://localhost:3333)
 
-### 6 - Rode as migrations
+### 5 - Rode as migrations
 A aplicação está iniciada, porém, o banco de dados ainda não possui a estrutura definida pelas [_migrations_](https://sequelize.org/master/manual/migrations.html) do Sequelize.
 Na raiz do projeto, num terminal separado, rode o comando:
 ```
@@ -57,7 +58,7 @@ $ npx sequelize-cli db:migrate
 ```
 _Assim o [npx](https://www.npmjs.com/package/npx) vai se encarregar de baixar o binário e executar de forma automática :D_
 
-### 7 - (Opcional) Insomnia
+### 6 - (Opcional) Insomnia
 A partir daqui, a aplicação já estará pronta para receber as requisições. Se deseja testar as rotas, o arquivo com a configuração de rotas para teste no insomnia está na pasta [docs/insomnia.json](https://github.com/thejoaov/bootcamp-meetapp-api/blob/master/docs/insomnia.json)
 Faça o download e importe no programa.
 
@@ -65,12 +66,15 @@ Faça o download e importe no programa.
 
 ---
 # Documentação
+
 A documentação da API está disponível ao rodar a aplicação com o ```docker-compose up```, no endereço [localhost:5000](http://localhost:5000)
 
 ---
 # Bugs
+
 Veja ou crie as issues [AQUI](https://github.com/thejoaov/bootcamp-meetapp-api/issues/new?labels=bug).
 
 ---
 # To-Do
+
 - [ ] Testes?
