@@ -14,6 +14,7 @@ class SubscriptionController {
       include: [
         {
           model: Meetup,
+          as: 'meetup',
           where: {
             date: {
               [Op.gt]: new Date(),
@@ -22,6 +23,7 @@ class SubscriptionController {
         },
         {
           model: User,
+          as: 'user',
           attributes: ['id', 'name'],
         },
       ],

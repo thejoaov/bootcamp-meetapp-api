@@ -15,6 +15,7 @@ class MeetupController {
       include: [
         {
           model: User,
+          as: 'creator',
           attributes: ['id', 'name', 'email'],
         },
         {
@@ -28,7 +29,7 @@ class MeetupController {
           include: [
             {
               model: User,
-              attributes: ['name', 'email'],
+              attributes: ['id', 'name', 'email'],
             },
           ],
         },
@@ -47,6 +48,7 @@ class MeetupController {
         include: [
           {
             model: User,
+            as: 'creator',
             attributes: ['id', 'name', 'email'],
           },
           {
@@ -112,6 +114,7 @@ class MeetupController {
       include: [
         {
           model: User,
+          as: 'creator',
           attributes: ['id', 'name', 'email'],
         },
         {
@@ -147,6 +150,7 @@ class MeetupController {
       include: [
         {
           model: User,
+          as: 'creator',
           attributes: ['id', 'name', 'email'],
         },
         {

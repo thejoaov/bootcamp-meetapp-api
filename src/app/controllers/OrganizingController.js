@@ -9,6 +9,7 @@ class OrganizingController {
       include: [
         {
           model: User,
+          as: 'creator',
           attributes: ['id', 'name'],
         },
         {
