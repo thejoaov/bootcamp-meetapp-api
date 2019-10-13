@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
+import cors from 'cors';
+
 import multerConfig from './config/multer';
 
 import UserController from './app/controllers/UserController';
@@ -14,6 +16,8 @@ import SubscriptionController from './app/controllers/SubscriptionController';
 const routes = new Router();
 
 const upload = multer(multerConfig);
+
+routes.use(cors());
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
