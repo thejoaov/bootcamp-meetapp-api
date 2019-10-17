@@ -7,11 +7,9 @@ import Subscription from '../models/Subscription';
 
 class MeetupController {
   async index(req, res) {
-    const where = {};
     const page = req.query.page || 1;
 
     const meetups = await Meetup.findAll({
-      where,
       include: [
         {
           model: User,
@@ -23,16 +21,18 @@ class MeetupController {
           as: 'image',
           attributes: ['url', 'path'],
         },
-        {
-          model: Subscription,
-          attributes: ['id'],
-          include: [
-            {
-              model: User,
-              attributes: ['id', 'name', 'email'],
-            },
-          ],
-        },
+        // {
+        //   model: Subscription,
+        //   as: 'subscription',
+        //   attributes: ['id'],
+        //   include: [
+        //     {
+        //       model: User,
+        //       as: 'user',
+        //       attributes: ['id', 'name', 'email'],
+        //     },
+        //   ],
+        // },
       ],
       limit: 10,
       offset: 10 * page - 10,
@@ -68,7 +68,7 @@ class MeetupController {
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),
-      file_id: Yup.number().required(),
+      image_id: Yup.number().required(),
       description: Yup.string().required(),
       location: Yup.string().required(),
       date: Yup.date().required(),
@@ -97,7 +97,7 @@ class MeetupController {
   async update(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string(),
-      file_id: Yup.number(),
+      image_id: Yup.number(),
       description: Yup.string(),
       location: Yup.string(),
       date: Yup.date(),
