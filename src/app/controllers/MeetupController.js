@@ -3,7 +3,6 @@ import { isBefore, parseISO } from 'date-fns';
 import Meetup from '../models/Meetup';
 import User from '../models/User';
 import File from '../models/File';
-import Subscription from '../models/Subscription';
 
 class MeetupController {
   async index(req, res) {
@@ -21,18 +20,6 @@ class MeetupController {
           as: 'image',
           attributes: ['url', 'path'],
         },
-        // {
-        //   model: Subscription,
-        //   as: 'subscription',
-        //   attributes: ['id'],
-        //   include: [
-        //     {
-        //       model: User,
-        //       as: 'user',
-        //       attributes: ['id', 'name', 'email'],
-        //     },
-        //   ],
-        // },
       ],
       limit: 10,
       offset: 10 * page - 10,
