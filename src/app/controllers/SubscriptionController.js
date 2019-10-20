@@ -22,7 +22,7 @@ class SubscriptionController {
           include: [
             {
               model: User,
-              as: 'owner',
+              as: 'creator',
               attributes: ['id', 'name', 'email'],
             },
             {
@@ -38,143 +38,117 @@ class SubscriptionController {
 
     return res.json(
       subscriptions.filter(sub =>
-        isBefore(new Date(), new Date(sub.meetup.date_time))
+        isBefore(new Date(), new Date(sub.meetup.date))
       )
     );
   }
 
   async store(req, res) {
-    const { meetUpId } = req.query;
+    const { meetupId } = req.params;
 
-    const meetUp = await Meetup.findByPk(meetUpId);
-
-    if (!meetUp) {
-      return res.status(404).json({
-        message: `MeetUp with id ${meetUpId} not found.`,
-        userMessage: 'MeetUp não foi encontrado',
-        code: 'ERROR_MEETUP_NOT_FOUND',
-      });
-    }
-
-    if (isBefore(new Date(meetUp.date_time), new Date())) {
-      return res.status(400).json({
-        message: "You can't subscribe to past MeetUps.",
-        userMessage: 'Você não pode se cadastrar em MeetUps no passado.',
-        code: 'ERROR_PAST_MEETUP',
-      });
-    }
-
-    if (meetUp.user_id === req.userId) {
-      return res.status(401).json({
-        message: "You can't subscribe to a MeetUp that is yours.",
-        userMessage: 'Você não pode se inscrever nos seus MeetUps.',
-        code: 'ERROR_BAD_REQUEST',
-      });
-    }
-
-    const subscriptionExists = await Subscription.findOne({
-      where: { user_id: req.userId, meetup_id: meetUpId },
+    const meetup = await Meetup.findOne({
+      where: { id: meetupId },
+      include: [
+        {
+          model: User,
+          as: 'creator',
+          attributes: ['id', 'name', 'email'],
+        },
+        {
+          model: File,
+          as: 'image',
+          attributes: ['url', 'path'],
+        },
+      ],
     });
 
-    if (subscriptionExists) {
-      return res.status(400).json({
-        message:
-          "You can't subscribe to a MeetUp that you already are subscribed.",
-        userMessage: 'Você ja se inscreveu neste MeetUp.',
-        code: 'ERROR_BAD_REQUEST',
+    if (!meetup) {
+      return res.status(404).json({
+        error: `Meetup with id ${meetupId} not found.`,
       });
     }
 
-    const sameHourMeetUps = await Subscription.findOne({
+    const paralelMeetups = await Subscription.findOne({
       where: { user_id: req.userId },
       include: [
         {
           model: Meetup,
           as: 'meetup',
           attributes: ['id'],
-          where: { date_time: meetUp.date_time },
+          where: { date: meetup.date },
         },
       ],
     });
 
-    if (sameHourMeetUps) {
+    if (paralelMeetups) {
       return res.status(400).json({
-        message:
-          'You can not subscribe to MeetUps that are at the same momemt.',
-        userMessage: 'Você já está inscrito em um MeetUp neste horário.',
-        code: 'ERROR_BAD_REQUEST',
+        error: 'Subscription in two Meetups at the same time are not allowed',
+      });
+    }
+
+    if (isBefore(new Date(meetup.date), new Date())) {
+      return res.status(400).json({
+        error: "You can't subscribe to past Meetups.",
+      });
+    }
+
+    if (meetup.user_id === req.userId) {
+      return res.status(400).json({
+        error: "You can't subscribe to your own Meetups",
+      });
+    }
+
+    const subscriptionExists = await Subscription.findOne({
+      where: { user_id: req.userId, meetup_id: meetupId },
+    });
+
+    if (subscriptionExists) {
+      return res.status(400).json({
+        error: 'Already subscribed',
+        subscriptionExists,
       });
     }
 
     const subscription = await Subscription.create({
       user_id: req.userId,
-      meetup_id: meetUpId,
+      meetup_id: meetupId,
     });
 
-    const mailData = await Subscription.findByPk(subscription.id, {
-      include: [
-        {
-          model: User,
-          as: 'user',
-          attributes: ['name', 'email'],
-        },
-        {
-          model: Meetup,
-          as: 'meetup',
-          attributes: ['title'],
-          include: [
-            {
-              model: User,
-              as: 'owner',
-              attributes: ['name', 'email'],
-            },
-          ],
-        },
-      ],
+    const user = await User.findByPk(req.userId);
+
+    await Queue.add(SubscriptionMail.key, {
+      meetup,
+      user,
     });
-
-    const mailOrganizedData = {
-      user: mailData.user,
-      owner: mailData.meetup.owner,
-      meetup: { title: mailData.meetup.title },
-      date: mailData.createdAt,
-    };
-
-    await Queue.add(SubscriptionMail.key, { subscription: mailOrganizedData });
 
     return res.json({ subscription });
   }
 
   async delete(req, res) {
-    const { meetUpId } = req.query;
+    const { meetupId } = req.params;
 
-    const meetUp = Meetup.findByPk(meetUpId);
+    const meetup = Meetup.findByPk(meetupId);
     const subscription = await Subscription.findOne({
-      where: { user_id: req.userId, meetup_id: meetUpId },
+      where: { user_id: req.userId, meetup_id: meetupId },
     });
 
     if (!subscription) {
       return res.status(404).json({
-        message: `Subscription to MeetUp with id ${meetUpId} not found.`,
-        userMessage: 'A inscrição para este MeetUp não foi encontrada.',
-        code: 'ERROR_SUBSCRIPTION_NOT_FOUND',
+        error: `Subscription to MeetUp with id ${meetupId} not found.`,
       });
     }
 
-    if (isBefore(new Date(meetUp.date_time), new Date())) {
+    if (isBefore(new Date(meetup.date), new Date())) {
       return res.status(400).json({
-        message: "You can't cancel the subscription of past MeetUps.",
-        userMessage:
-          'Você não pode cancelar a inscrição de MeetUps no passado.',
-        code: 'ERROR_PAST_MEETUP',
+        error: 'This Meetup is finished.',
       });
     }
 
-    Subscription.destroy({ where: { meetup_id: meetUpId } });
+    Subscription.destroy({ where: { meetup_id: meetupId } });
 
     return res.json({
-      message: `Subscription to meetup with id ${meetUpId} was deleted.`,
-      userMessage: 'Inscrição no MeetUp cancelada.',
+      error: `Subscription to meetup with id ${meetupId} was deleted.`,
+      usererror: 'Inscrição no MeetUp cancelada.',
       code: 'SUCCESS',
     });
   }
