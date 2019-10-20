@@ -43,11 +43,11 @@ O projeto foi criado utilizando [Sequelize ORM](https://sequelize.org/), juntame
 ---
 ## "Se eu fizer o passo a passo, meu café vai esfriar!"
 
-Se você não tem tempo ou disposição pra fazer todo o passo a passo e perder todo o processo e explicação de como tudo está orquestrado, você pode fazer tudo funcionar simplesmente abrindo um terminal na raiz do projeto, e rodando o seguinte comando:
+Se você não tem tempo ou disposição pra fazer todo o passo a passo e utiliza linux, mac ou wsl, sendo a primeira vez que você está executando a api (se você acabou de clonar o projeto, por exemplo) você pode fazer tudo funcionar simplesmente abrindo um terminal na raiz do projeto, e rodando o seguinte comando:
 ```
 $ yarn && cat .env.example>>.env && docker-compose up
 ```
-_OBS: comando acima é executado apenas uma vez, nas outras execuções, o projeto pode ser iniciado pelo_ 
+_OBS: comando acima é executado apenas uma vez, nas outras execuções, o projeto pode ser iniciado pelo_
 ```
 $ docker-compose up
 ```
