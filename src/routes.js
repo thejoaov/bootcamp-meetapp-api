@@ -21,10 +21,9 @@ routes.use(cors());
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+routes.post('/files', upload.single('file'), FileController.store);
 
 routes.use(authMiddleware);
-
-routes.post('/files', upload.single('file'), FileController.store);
 
 routes.put('/users', UserController.update);
 
