@@ -1,6 +1,9 @@
 FROM node:alpine
 
-WORKDIR /usr/app
+WORKDIR /usr/server
 
 COPY . ./
-RUN yarn
+
+RUN rm -rf .env &&\
+  cat .env.example>>.env &&\
+  yarn
