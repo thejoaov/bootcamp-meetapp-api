@@ -1,3 +1,5 @@
+import './bootstrap';
+
 import 'dotenv/config';
 
 import express from 'express';
