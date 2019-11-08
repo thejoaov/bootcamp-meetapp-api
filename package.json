@@ -12,12 +12,11 @@
     "api"
   ],
   "scripts": {
-    "start": "concurrently -k \"yarn start:server\" \"yarn start:queue\"",
-    "start:server": "yarn migrate && sucrase-node src/server.js",
-    "start:queue": "sucrase-node src/queue.js",
-    "dev:server": "yarn migrate && nodemon src/server.js",
-    "dev:queue": "nodemon src/queue.js",
-    "migrate": "sequelize db:migrate"
+    "start": "concurrently -k \"yarn server\" \"yarn queue\"",
+    "server": "nodemon src/server.js",
+    "queue": "nodemon src/queue.js",
+    "build": "sucrase",
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",

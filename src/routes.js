@@ -19,6 +19,17 @@ const upload = multer(multerConfig);
 
 routes.use(cors());
 
+routes.get('/', (req, res) => {
+  res.json({
+    time: new Date().toLocaleTimeString('fr-FR', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'America/Fortaleza',
+    }),
+    message: 'Welcome to meetapp API server, have a nice day!',
+  });
+});
+
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 routes.post('/files', upload.single('file'), FileController.store);
