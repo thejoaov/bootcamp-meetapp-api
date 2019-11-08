@@ -21,12 +21,10 @@ routes.use(cors());
 
 routes.get('/', (req, res) => {
   res.json({
-    time: new Date().toLocaleTimeString('fr-FR', {
-      hour: '2-digit',
-      minute: '2-digit',
+    time: new Date().toLocaleTimeString('en-US', {
       timeZone: 'America/Fortaleza',
     }),
-    message: 'Welcome to meetapp API server, have a nice day!',
+    message: `Welcome to ${process.env.APP_NAME}, have a nice day!`,
   });
 });
 

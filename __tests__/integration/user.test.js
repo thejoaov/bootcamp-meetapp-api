@@ -118,7 +118,7 @@ describe('Users tests', () => {
 
     // Validate token using some route that needs it
     const response = await request(app)
-      .get('/appointments')
+      .get('/organizing')
       .set({ Authorization: `Bearer ${token}` });
 
     expect(response.status).toBe(200);

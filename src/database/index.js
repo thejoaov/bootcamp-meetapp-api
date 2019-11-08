@@ -7,7 +7,6 @@ import User from '../app/models/User';
 import Meetup from '../app/models/Meetup';
 import Subscription from '../app/models/Subscription';
 import File from '../app/models/File';
-import mongoConfig from '../config/mongo';
 
 const models = [User, File, Meetup, Subscription];
 
@@ -15,13 +14,9 @@ class Database {
   constructor() {
     this.connection = new Sequelize(databaseConfig);
 
-    this.mongoConnection = mongoose.connect(mongoConfig(), {
-      useNewUrlParser: true,
-      useFindAndModify: true,
-    });
-
     this.init();
     this.associate();
+    this.mongo();
   }
 
   init() {
@@ -33,6 +28,14 @@ class Database {
       if (model.associate) {
         model.associate(this.connection.models);
       }
+    });
+  }
+
+  mongo() {
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true,
     });
   }
 }
