@@ -77,7 +77,7 @@ Para rodar o projeto em desenvolvimento, utilize `yarn start`, que irá rodar o 
 
 Abaixo, os comandos disponíveis de acordo com o `package.json`:
 
-```json
+```javascript
   "scripts": {
     // Inicia o servidor e a queue usando o concurrently
     "start": "concurrently -k \"yarn server\" \"yarn queue\"",
